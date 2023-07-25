@@ -50,6 +50,7 @@ function App() {
       );
     }
 
+    // Passing all the data from the "database" to the card component as a prop
     return filteredProducts.map(({img, title, star, reviews,newPrice, prevPrice}) => (
       <Card 
       key={Math.random()} 
@@ -69,10 +70,10 @@ function App() {
   return (
     <>
     {/* passes handleChange as a prop */}
-    <Sidebar handleChange={handleChange}/>
-    <Navigation />
-    <Recommended />
-    <Products />
+    <Sidebar handleChange={handleChange} />
+    <Navigation query={query} handleInputChange={handleInputChange} />
+    <Recommended handleClick={handleClick} />
+    <Products result={result} />
     </>
   )
 }
